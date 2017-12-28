@@ -25,4 +25,5 @@ def get_largest_palindrome(digits):
     minNum = 10**(digits-1)
     maxNum = (10**digits)-1
     return find_largest_palindrome(minNum,maxNum)
-print(get_largest_palindrome(8))
+if __name__ == '__main__':
+    print(get_largest_palindrome(8))

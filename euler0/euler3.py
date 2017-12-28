@@ -11,4 +11,5 @@ def largest_prime_factor(num):
             num /= i
             largest_factor = i
     return largest_factor
-print(largest_prime_factor(600851475143))
+if __name__ == '__main__':
+    print(largest_prime_factor(600851475143))

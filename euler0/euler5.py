@@ -18,4 +18,5 @@ def smallest_multiple(n):
         del list[l]
         l-=1
     return int(multiple)
-print(smallest_multiple(20))
+if __name__ == '__main__':
+    print(smallest_multiple(20))

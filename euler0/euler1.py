@@ -6,4 +6,5 @@ def sumOfMultiOf3And5(num):
         if isMultiOf3And5(i):
             sum+=i
     return sum
-print(sumOfMultiOf3And5(1000))
+if __name__ == '__main__':
+    print(sumOfMultiOf3And5(1000))

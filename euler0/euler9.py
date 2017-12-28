@@ -35,5 +35,6 @@ def get_pythag_triplets(total):
                 c = factor*(sN+sM)
                 return a,b,c,factor
     return -1,-1,-1
-a,b,c,factor = get_pythag_triplets(1000)
-print(int(a*b*c))
+if __name__ == '__main__':
+    a,b,c,factor = get_pythag_triplets(1000)
+    print(int(a*b*c))

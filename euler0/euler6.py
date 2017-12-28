@@ -7,4 +7,5 @@ def getSumSquareDifference(n):
     for i in range(n+1):
         sumOfSquares+= i ** 2
     return squaresOfSum - sumOfSquares
-print(getSumSquareDifference(100))
+if __name__ == '__main__':
+    print(getSumSquareDifference(100))

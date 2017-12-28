@@ -13,4 +13,5 @@ def getEvenFibonacci(num):
                 sum+= memo[0]
         prevFib = not prevFib
     return sum
-print(getEvenFibonacci(31))
+if __name__ == '__main__':
+    print(getEvenFibonacci(31))

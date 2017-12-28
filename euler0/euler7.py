@@ -12,4 +12,5 @@ def getNthPrime(n):
             i+=1
         key+=2
     return prime[i-1]
-print(getNthPrime(10001))
+if __name__ == '__main__':
+    print(getNthPrime(10001))
