@@ -11,4 +11,5 @@ def sum_of_primes(n):
         if primes[i] == True:
             sumOfPrimes+=i
     return sumOfPrimes
-print(sum_of_primes(2000000))
+if __name__ == '__main__':
+    print(sum_of_primes(2000000))
