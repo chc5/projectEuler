@@ -14,9 +14,9 @@ class MaximumPathSum():
             n -= 1
         return self.path[0][0]
 if __name__ == '__main__':
-    start_time = time.clock()
+    start_time = time.time()
     fileName = "euler018_t.txt"
     m = MaximumPathSum(fileName)
     print(m.getSum())
-    end_time = time.clock()
+    end_time = time.time()
     print("Time Taken:",end_time-start_time)
