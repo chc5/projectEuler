@@ -1,5 +1,5 @@
-import math
-def getNthPrime(n):
+import math, time
+def get_nth_prime(n):
     prime = [2]
     i = 1
     key = 3
@@ -13,4 +13,7 @@ def getNthPrime(n):
         key+=2
     return prime[i-1]
 if __name__ == '__main__':
-    print(getNthPrime(10001))
+    start_time = time.time()
+    print(get_nth_prime(10001))
+    end_time = time.time()
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")

@@ -1,3 +1,4 @@
+import time
 def is_palindrome(num):
     string = str(num)
     l = len(string)
@@ -26,4 +27,7 @@ def get_largest_palindrome(digits):
     maxNum = (10**digits)-1
     return find_largest_palindrome(minNum,maxNum)
 if __name__ == '__main__':
-    print(get_largest_palindrome(8))
+    start_time = time.time()
+    print(get_largest_palindrome(3))
+    end_time = time.time()
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")

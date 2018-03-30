@@ -1,63 +1,64 @@
 #Similar to Problem #8
 #I will be reusing code
+import time
 import euler008 as euler8
 def largest_product_in_grid(grid,n):
-    gridSize = len(grid)
-    maxProduct = 0
+    size = len(grid)
+    max_product = 0
     # rows
-    for i in range(gridSize):
+    for i in range(size):
         arr = []
-        for j in range(gridSize):
+        for j in range(size):
             arr.append(grid[i][j])
         product = euler8.largest_product_in_series(arr,n)
-        if maxProduct < product:
-            maxProduct = product
+        if max_product < product:
+            max_product = product
     #columns
-    for i in range(gridSize):
+    for i in range(size):
         arr = []
-        for j in range(gridSize):
+        for j in range(size):
             arr.append(grid[i][j])
         product = euler8.largest_product_in_series(arr,n)
-        if maxProduct < product:
-            maxProduct = product
+        if max_product < product:
+            max_product = product
     #diagonals
-    for i in range(gridSize):
+    for i in range(size):
         arr = []
-        for j in range(0,gridSize-i):
+        for j in range(0,size-i):
             #print(grid[j+i][j],end = ' ')
             arr.append(grid[j+i][j])
         product = euler8.largest_product_in_series(arr,n)
-        if maxProduct < product:
-            maxProduct = product
+        if max_product < product:
+            max_product = product
         #print(" ")
-    for i in range(gridSize):
+    for i in range(size):
         arr = []
-        for j in range(0,gridSize-i):
+        for j in range(0,size-i):
             #print(grid[j][j+i],end=' ')
             arr.append(grid[j][j+i])
         product = euler8.largest_product_in_series(arr,n)
-        if maxProduct < product:
-            maxProduct = product
+        if max_product < product:
+            max_product = product
         #print(" ")
     for i in range(20):
         arr = []
-        for j in range(gridSize-i):
-            #print(grid[j][gridSize-1-j-i], end=' ')
-            arr.append(grid[j][gridSize-1-j-i])
+        for j in range(size-i):
+            #print(grid[j][size-1-j-i], end=' ')
+            arr.append(grid[j][size-1-j-i])
         product = euler8.largest_product_in_series(arr,n)
-        if maxProduct < product:
-            maxProduct = product
-        print(" ")
+        if max_product < product:
+            max_product = product
     for i in range(20):
         arr = []
-        for j in range(i,gridSize):
-            #print(grid[j][gridSize-1-j+i],end=' ')
-            arr.append(grid[j][gridSize-1-j+i])
-        if maxProduct < product:
-            maxProduct = product
+        for j in range(i,size):
+            #print(grid[j][size-1-j+i],end=' ')
+            arr.append(grid[j][size-1-j+i])
+        if max_product < product:
+            max_product = product
         #print(" ")
-    return maxProduct
+    return max_product
 if __name__ == '__main__':
+    start_time = time.time()
     arr = [
     "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08",
     "49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00",
@@ -84,3 +85,5 @@ if __name__ == '__main__':
         g = [int(i) for i in row.strip().split(" ")]
         grid.append(g)
     print(int(largest_product_in_grid(grid,4)))
+    end_time = time.time()
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")

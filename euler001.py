@@ -1,14 +1,14 @@
 import time
-def isMultiOf3And5(num):
-    return num % 3 == 0 or num % 5 == 0
-def sumOfMultiOf3And5(num):
+def get_multiples_of(factor1,factor2,num):
     sum = 0
-    for i in range(3,num):
-        if isMultiOf3And5(i):
-            sum+=i
+    if factor2 < factor1:
+        factor1, factor2 = factor2, factor1
+    for i in range(factor1,num):
+        if i % factor1 == 0 or i % factor2 == 0:
+            sum += i
     return sum
 if __name__ == '__main__':
     start_time = time.time()
-    print(sumOfMultiOf3And5(1000))
+    print(get_multiples_of(3,5,1000))
     end_time = time.time()
-    print("Time Taken:",end_time-start_time)
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")

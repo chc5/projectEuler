@@ -1,4 +1,4 @@
-import math
+import math, time
 #   Constructing Pythagorean Triples
 #   involves the following equations:
 #   a = n^2-m^2
@@ -28,13 +28,16 @@ def get_pythag_triplets(total):
             y += f
             if total % (x+y) == 0:
                 factor = total / (x+y)
-                sN = i**2
-                sM = j**2
-                a = factor*(sN - sM)
+                squared_n = i**2
+                squared_m = j**2
+                a = factor*(squared_n - squared_m)
                 b = factor*2*i*j
-                c = factor*(sN+sM)
+                c = factor*(squared_n+squared_m)
                 return a,b,c,factor
     return -1,-1,-1
 if __name__ == '__main__':
+    start_time = time.time()
     a,b,c,factor = get_pythag_triplets(1000)
     print(int(a*b*c))
+    end_time = time.time()
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")

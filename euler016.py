@@ -8,7 +8,7 @@ def power_digit_sum(n,e):
             sum_of_digits += int(key)
     return sum_of_digits
 if __name__ == '__main__':
-    start_time = time.clock()
+    start_time = time.time()
     print(power_digit_sum(2,1000))
-    end_time = time.clock()
-    print("Time Taken:",end_time-start_time)
+    end_time = time.time()
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")

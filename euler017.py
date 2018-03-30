@@ -8,61 +8,61 @@
 import time
 class NumberToLetter():
     def __init__(self):
-        self.letterCounts = dict()
-        self.letterCounts[0] = len("")
-        self.letterCounts[1] = len("one")
-        self.letterCounts[2] = len("two")
-        self.letterCounts[3] = len("three")
-        self.letterCounts[4] = len("four")
-        self.letterCounts[5] = len("five")
-        self.letterCounts[6] = len("six")
-        self.letterCounts[7] = len("seven")
-        self.letterCounts[8] = len("eight")
-        self.letterCounts[9] = len("nine")
-        self.letterCounts[10] = len("ten")
-        self.letterCounts[11] = len("eleven")
-        self.letterCounts[12] = len("twelve")
-        self.letterCounts[13] = len("thirteen")
-        self.letterCounts[14] = len("fourteen")
-        self.letterCounts[15] = len("fifteen")
-        self.letterCounts[16] = len("sixteen")
-        self.letterCounts[17] = len("seventeen")
-        self.letterCounts[18] = len("eighteen")
-        self.letterCounts[19] = len("nineteen")
-        self.letterCounts[20] = len("twenty")
-        self.letterCounts[30] = len("thirty")
-        self.letterCounts[40] = len("forty")
-        self.letterCounts[50] = len("fifty")
-        self.letterCounts[60] = len("sixty")
-        self.letterCounts[70] = len("seventy")
-        self.letterCounts[80] = len("eighty")
-        self.letterCounts[90] = len("ninety")
-        self.letterCounts[100] = len("hundred")
-        self.letterCounts[1000] = len("thousand")
+        self.letter_counts = dict()
+        self.letter_counts[0] = len("")
+        self.letter_counts[1] = len("one")
+        self.letter_counts[2] = len("two")
+        self.letter_counts[3] = len("three")
+        self.letter_counts[4] = len("four")
+        self.letter_counts[5] = len("five")
+        self.letter_counts[6] = len("six")
+        self.letter_counts[7] = len("seven")
+        self.letter_counts[8] = len("eight")
+        self.letter_counts[9] = len("nine")
+        self.letter_counts[10] = len("ten")
+        self.letter_counts[11] = len("eleven")
+        self.letter_counts[12] = len("twelve")
+        self.letter_counts[13] = len("thirteen")
+        self.letter_counts[14] = len("fourteen")
+        self.letter_counts[15] = len("fifteen")
+        self.letter_counts[16] = len("sixteen")
+        self.letter_counts[17] = len("seventeen")
+        self.letter_counts[18] = len("eighteen")
+        self.letter_counts[19] = len("nineteen")
+        self.letter_counts[20] = len("twenty")
+        self.letter_counts[30] = len("thirty")
+        self.letter_counts[40] = len("forty")
+        self.letter_counts[50] = len("fifty")
+        self.letter_counts[60] = len("sixty")
+        self.letter_counts[70] = len("seventy")
+        self.letter_counts[80] = len("eighty")
+        self.letter_counts[90] = len("ninety")
+        self.letter_counts[100] = len("hundred")
+        self.letter_counts[1000] = len("thousand")
         self.And = len("and")
     def number_letter_counts(self,start,end):
         count = 0
         for i in range(start,end+1):
-            doubledigits = i % 100
-            singledigit = doubledigits % 10
-            if doubledigits <= 20:
-                count += self.letterCounts[doubledigits]
+            double_digits = i % 100
+            single_digit = double_digits % 10
+            if double_digits <= 20:
+                count += self.letter_counts[double_digits]
             else:
-                count += self.letterCounts[(doubledigits // 10) * 10] + self.letterCounts[singledigit]
-            tripledigits = i % 1000
-            thirddigit = tripledigits // 100
-            if thirddigit > 0:
-                count += self.letterCounts[thirddigit] + self.letterCounts[100]
-                if singledigit > 0 or doubledigits > 0:
+                count += self.letter_counts[(double_digits // 10) * 10] + self.letter_counts[single_digit]
+            triple_digits = i % 1000
+            third_digit = triple_digits // 100
+            if third_digit > 0:
+                count += self.letter_counts[third_digit] + self.letter_counts[100]
+                if single_digit > 0 or double_digits > 0:
                     count += self.And
-            quaddigits = i % 10000
-            fourthdigit = quaddigits // 1000
-            if fourthdigit > 0:
-                count += self.letterCounts[fourthdigit] + self.letterCounts[1000]
+            quad_digits = i % 10000
+            fourth_digit = quad_digits // 1000
+            if fourth_digit > 0:
+                count += self.letter_counts[fourth_digit] + self.letter_counts[1000]
         return count
 if __name__ == '__main__':
-    start_time = time.clock()
+    start_time = time.time()
     c = NumberToLetter()
     print(c.number_letter_counts(1,1000))
-    end_time = time.clock()
-    print("Time Taken:",end_time-start_time)
+    end_time = time.time()
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")

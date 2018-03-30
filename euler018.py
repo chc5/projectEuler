@@ -1,11 +1,11 @@
 import time
 class MaximumPathSum():
-    def __init__(self,fileName):
-        self.fileName = fileName
+    def __init__(self,file_name):
+        self.file_name = file_name
         self.path = []
-        with open(fileName,"r") as f:
-            self.path = f.read()
-            self.path = [list(map(int,line.split(" "))) for line in self.path.split("\r\n")]
+        with open(file_name,"r") as f:
+            self.path = f.read().split("\n")
+            self.path = [[int(i) for i in row.split()] for row in self.path]
     def getSum(self):
         n = len(self.path) - 1
         while n > 0:
@@ -15,8 +15,8 @@ class MaximumPathSum():
         return self.path[0][0]
 if __name__ == '__main__':
     start_time = time.time()
-    fileName = "euler018_t.txt"
-    m = MaximumPathSum(fileName)
+    file_name = "euler018_t.txt"
+    m = MaximumPathSum(file_name)
     print(m.getSum())
     end_time = time.time()
-    print("Time Taken:",end_time-start_time)
+    print("Time Taken:",(end_time-start_time)*10**6,"microseconds")
